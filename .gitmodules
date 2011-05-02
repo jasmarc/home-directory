@@ -1,0 +1,9 @@
+[submodule "home/.emacs.d/rinari"]
+	path = home/.emacs.d/rinari
+	url = git://github.com/eschulte/rinari.git
+[submodule "home/.emacs.d/rinari/util/jump"]
+	path = home/.emacs.d/rinari/util/jump
+	url = git://github.com/eschulte/jump.el.git
+[submodule "home/.emacs.d/rinari/util/test/ert"]
+	path = home/.emacs.d/rinari/util/test/ert
+	url = git://github.com/nex3/ert.git
