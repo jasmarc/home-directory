@@ -1,15 +1,12 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
    PATH=~/bin:"${PATH}"
 fi
 if [ -d ~/usr/bin ] ; then
    PATH=~/usr/bin:"${PATH}"
 fi
-
-# HOSTNAME=`hostname`
 
 if [ `hostname` == 'jmarcell-mbpro.local' ]; then
     alias theo="cd ~/Desktop/vagrant-test/mRVM\ Workspace/mRVM"
