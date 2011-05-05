@@ -1,6 +1,6 @@
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
-if [ `hostname` == 'jmarcell-mbpro.local' ]; then
+if [ `hostname` == 'jmarcell-mbpro' ]; then
     # Source SSH settings, if applicable
 
     if [ -f "${SSH_ENV}" ]; then

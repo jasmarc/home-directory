@@ -8,7 +8,7 @@ if [ -d ~/usr/bin ] ; then
    PATH=~/usr/bin:"${PATH}"
 fi
 
-if [ `hostname` == 'jmarcell-mbpro.local' ]; then
+if [ `hostname` == 'jmarcell-mbpro' ]; then
     alias theo="cd ~/Desktop/vagrant-test/mRVM\ Workspace/mRVM"
     alias dt="cd ~/Desktop/"
     alias nlp="cd ~/Dropbox/Cornell\ Classes/Shared\ Karan\ Jason/CS\ 4740/Final\ Project"
