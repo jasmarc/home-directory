@@ -16,13 +16,23 @@ if [ `hostname` == 'jmarcell-mbpro' ]; then
     alias gr="/usr/bin/growl -H localhost -m "
 fi
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 SSH_ENV=$HOME/.ssh/environment
 source ~/.bash_completion.d/git-completion.bash
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\h:\W\[\033[01;33m\]$(__git_ps1)\[\033[00m\] \$ '
+export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1)\[\033[00m\] \$ '
 export EDITOR=emacs
 
 function start_agent {
