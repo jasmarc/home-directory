@@ -32,7 +32,7 @@ SSH_ENV=$HOME/.ssh/environment
 source ~/.bash_completion.d/git-completion.bash
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1)\[\033[00m\] \$ '
+export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;35m\]\W\[\033[01;33m\]$(__git_ps1)\[\033[00m\] \$ '
 export EDITOR=emacs
 
 function start_agent {
