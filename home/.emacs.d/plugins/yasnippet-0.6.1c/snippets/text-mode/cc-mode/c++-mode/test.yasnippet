@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# --
+static char * test_$1() {
+  $4
+  mu_assert("$3", $2);
+  return 0;
+}
