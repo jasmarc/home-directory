@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -26,7 +25,14 @@ source ~/.bash_completion.d/git-completion.bash
 stty stop ^J
 
 parse_svn_branch() {
-  svn info 2>/dev/null | sed -ne 's#^URL: ##p' | sed -E 's#^.*(trunk|branches.*)#\1#' | sed -E 's#branches/##' | awk '{print " ("$1")" }'
+  export dirty=`parse_svn_dirty`
+  parse_svn_url | sed -E 's#^.*(trunk|branches/.+).*#\1#' | sed -E 's#branches/##' | awk -F '/' '{print " ("$1"" ENVIRON["dirty"] ")" }'
+}
+parse_svn_url() {
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+}
+parse_svn_dirty() {
+  if [ $((`svn status 2>/dev/null | wc -l`)) -gt 0 ]; then echo " *"; fi
 }
 
 export GIT_PS1_SHOWDIRTYSTATE=1
