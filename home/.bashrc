@@ -38,6 +38,8 @@ parse_svn_dirty() {
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;35m\]\W\[\033[01;33m\]$(__git_ps1)$(parse_svn_branch)\[\033[00m\] \$ '
 export EDITOR=emacs
+export CLICOLOR=true
+export LSCOLORS="HxfxcxdxBxegedabagacHx"
 
 pkg-install()
 {
@@ -49,3 +51,7 @@ alias mount-dmg="hdiutil attach"
 alias eject-dmg="hdiutil eject"
 
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+if [ -e ~/.applestuff ]; then
+    source ~/.applestuff
+fi
