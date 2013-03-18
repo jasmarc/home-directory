@@ -1,7 +1,7 @@
-[mergetool "[tool]"]
-	cmd = /usr/bin/opendiff
-[merge]
-	tool = Kaleidoscope
+# [mergetool "[tool]"]
+# 	cmd = /usr/bin/opendiff
+# [merge]
+# 	tool = Kaleidoscope
 [user]
 	name = Jason Marcell
 	email = jasonmarcell@gmail.com
@@ -32,18 +32,18 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ls = ls-files
-[diff]
-	external = /Users/jasonmarcell/git-diff-cmd.sh
-	tool = Kaleidoscope
 [core]
 	excludesfile = /Users/jasonmarcell/.gitignore_global
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-[mergetool]
-	prompt = false
+# [diff]
+# 	external = /Users/jasonmarcell/git-diff-cmd.sh
+# 	tool = Kaleidoscope
+# [difftool "Kaleidoscope"]
+# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+# [difftool]
+# 	prompt = false
+# [mergetool "Kaleidoscope"]
+# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+# [mergetool]
+# 	prompt = false
 [credential]
 	helper = osxkeychain
