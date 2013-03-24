@@ -1,10 +1,6 @@
-# [mergetool "[tool]"]
-# 	cmd = /usr/bin/opendiff
-# [merge]
-# 	tool = Kaleidoscope
 [user]
 	name = Jason Marcell
-	email = jasonmarcell@gmail.com
+	email = jmarcell@apple.com
 [github]
 	user = jasmarc
 [color]
@@ -33,17 +29,6 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ls = ls-files
 [core]
-	excludesfile = /Users/jasonmarcell/.gitignore_global
-# [diff]
-# 	external = /Users/jasonmarcell/git-diff-cmd.sh
-# 	tool = Kaleidoscope
-# [difftool "Kaleidoscope"]
-# 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-# [difftool]
-# 	prompt = false
-# [mergetool "Kaleidoscope"]
-# 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-# [mergetool]
-# 	prompt = false
+	excludesfile = $HOME/.gitignore_global
 [credential]
 	helper = osxkeychain
