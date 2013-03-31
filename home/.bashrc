@@ -18,15 +18,17 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-SSH_ENV=$HOME/.ssh/environment
-source ~/.bash_completion.d/git-completion.bash
-
 # This is so that we can do forward history search
 stty stop ^J
 
-parse_svn_branch() {
+SSH_ENV=$HOME/.ssh/environment
+
+source ~/.bash_completion.d/git-completion.bash
+
+__svn_ps1() {
   export dirty=`parse_svn_dirty`
-  parse_svn_url | sed -E 's#^.*(trunk|branches/.+).*#\1#' | sed -E 's#branches/##' | awk -F '/' '{print " ("$1"" ENVIRON["dirty"] ")" }'
+  parse_svn_url | sed -E 's#^.*(trunk|branches/.+).*#\1#' | \
+      sed -E 's#branches/##' | awk -F '/' '{print " ("$1"" ENVIRON["dirty"] ")" }'
 }
 parse_svn_url() {
   svn info 2>/dev/null | sed -ne 's#^URL: ##p'
@@ -35,8 +37,22 @@ parse_svn_dirty() {
   if [ $((`svn status 2>/dev/null | wc -l`)) -gt 0 ]; then echo " *"; fi
 }
 
+NONE="\[\033[0m\]"    # unsets color to term's fg color
+
+# regular colors
+K="\[\033[0;30m\]"    # black
+R="\[\033[0;31m\]"    # red
+G="\[\033[0;32m\]"    # green
+Y="\[\033[0;33m\]"    # yellow
+B="\[\033[0;34m\]"    # blue
+M="\[\033[0;35m\]"    # magenta
+C="\[\033[0;36m\]"    # cyan
+W="\[\033[0;37m\]"    # white
+SCM='$(__git_ps1)$(__svn_ps1)'
+
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;35m\]\W\[\033[01;33m\]$(__git_ps1)$(parse_svn_branch)\[\033[00m\] \$ '
+export PS1="$G\h$W:$M\W$Y$SCM$NONE \$ "
+
 export EDITOR=emacs
 export CLICOLOR=true
 export LSCOLORS="HxfxcxdxBxegedabagacHx"
