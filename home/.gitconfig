@@ -33,6 +33,6 @@
 [credential]
 	helper = osxkeychain
 [push]
-	default = simple
+	default = matching
 [branch]
 	autosetuprebase = always
