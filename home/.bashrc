@@ -65,6 +65,7 @@ pkg-install()
 alias eject-usb="diskutil eject"
 alias mount-dmg="hdiutil attach"
 alias eject-dmg="hdiutil eject"
+alias g=git
 
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
