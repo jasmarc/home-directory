@@ -69,6 +69,5 @@ alias g=git
 
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-if [ -e ~/.applestuff ]; then
-    source ~/.applestuff
-fi
+# Source all dotfiles under ~/.include
+D="$HOME/.include"; if [ -e $D ]; then for f in `find $D -type f`; do . $f; done; fi
