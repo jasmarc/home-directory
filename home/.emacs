@@ -12,8 +12,8 @@
 (ido-mode t)
 
 ;; Rinari
-;; (add-to-list 'load-path "~/.emacs.d/rinari")
-;; (require 'rinari)
+(add-to-list 'load-path "~/.emacs.d/rinari")
+(require 'rinari)
 
 ;; If you've ever had your ass saved by an Emacs backup file, you
 ;; probably want more of them, not less of them. It is annoying that
