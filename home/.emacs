@@ -1,7 +1,3 @@
-(setq-default c-basic-offset 4)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
@@ -58,3 +54,23 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers 
+
+(require 'whitespace)
+(setq whitespace-style '(face trailing tabs tab-mark
+                                  space-before-tab
+                                  space-after-tab))
+(global-whitespace-mode t)
+
+(setq-default c-basic-offset 4)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+(defun toggle-tabs ()
+  "Toggles between using tabs vs. spaces"
+  (interactive)
+  (setq indent-tabs-mode (not indent-tabs-mode)))
+
+(defun reload-dotemacs-file ()
+  "reload your .emacs file without restarting Emacs"
+  (interactive)
+  (load-file "~/.emacs"))
