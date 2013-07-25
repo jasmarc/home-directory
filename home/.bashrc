@@ -25,6 +25,22 @@ SSH_ENV=$HOME/.ssh/environment
 
 source ~/.bash_completion.d/git-completion.bash
 
+__git_ps1() {
+    laststat=$?
+    gitpath=`which git`
+    status=`$gitpath status 2> /dev/null`
+    mystat=""
+    `echo "$status" | grep "Your branch is behind" > /dev/null 2>&1`
+    [[ $? == 0 ]] && mystat=" ↓"
+    `echo "$status" | grep "Your branch is ahead" > /dev/null 2>&1`
+    [[ $? == 0 ]] && mystat=" ↑"
+    `echo "$status" | grep "have diverged" > /dev/null 2>&1`
+    [[ $? == 0 ]] && mystat=" ↕"
+    [[ $(echo "$status" | tail -n1) =~ "working directory clean" ]] || mystat=" *"
+    $gitpath branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$mystat)/"
+    return $laststat
+}
+
 __svn_ps1() {
   export dirty=`parse_svn_dirty`
   parse_svn_url | sed -E 's#^.*(trunk|branches/.+).*#\1#' | \
