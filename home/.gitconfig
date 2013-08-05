@@ -1,6 +1,6 @@
 [user]
-	name = Jason Marcell
-	email = jmarcell@apple.com
+    name = Jason Marcell
+    email = jmarcell@apple.com
 [github]
     user = jasmarc
 [color]
@@ -37,4 +37,4 @@
 [branch]
     autosetuprebase = always
 [mergetool]
-	keepBackup = false
+    keepBackup = false
