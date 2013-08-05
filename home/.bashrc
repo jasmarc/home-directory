@@ -83,6 +83,14 @@ alias mount-dmg="hdiutil attach"
 alias eject-dmg="hdiutil eject"
 alias g=git
 
+function itunes-pause () {
+    /usr/bin/osascript -e 'tell application "iTunes"' -e "pause" -e "end tell"
+}
+
+function mute () {
+    /usr/bin/osascript -e 'set volume 2'
+}
+
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Source all dotfiles under ~/.include
