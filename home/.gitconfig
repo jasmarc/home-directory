@@ -36,3 +36,5 @@
     default = matching
 [branch]
     autosetuprebase = always
+[mergetool]
+	keepBackup = false
