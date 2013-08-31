@@ -24,6 +24,7 @@ stty stop ^J
 SSH_ENV=$HOME/.ssh/environment
 
 source ~/.bash_completion.d/git-completion.bash
+source ~/.bash_completion.d/git-flow-completion.bash
 
 __git_ps1() {
     laststat=$?
