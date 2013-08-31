@@ -96,3 +96,8 @@ PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Source all dotfiles under ~/.include
 D="$HOME/.include"; if [ -e $D ]; then for f in `find $D -type f`; do . $f; done; fi
+
+icloud-ssh()
+{
+    ssh -2 -6 $1.$ICLOUDID.members.btmm.icloud.com
+}
