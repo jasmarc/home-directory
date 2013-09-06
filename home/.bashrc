@@ -89,7 +89,7 @@ function itunes-pause () {
 }
 
 function mute () {
-    /usr/bin/osascript -e 'set volume 2'
+    /usr/bin/osascript -e 'set volume 0'
 }
 
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
