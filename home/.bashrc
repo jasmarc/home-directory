@@ -76,7 +76,7 @@ export LSCOLORS="HxfxcxdxBxegedabagacHx"
 
 pkg-install()
 {
-    sudo installer -pkg "$1" -target "/"   
+    sudo installer -pkg "$1" -target "/"
 }
 
 alias eject-usb="diskutil eject"
