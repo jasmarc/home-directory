@@ -30,7 +30,6 @@
     ls = ls-files
 [core]
     excludesfile = ~/.gitignore_global
-    whitespace = trailing-space,space-before-tab
 [credential]
     helper = osxkeychain
 [push]
@@ -43,5 +42,3 @@
     keepBackup = false
 [rerere]
     enabled = true
-[apply]
-    whitespace = fix
