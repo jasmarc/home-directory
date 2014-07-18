@@ -82,6 +82,7 @@ pkg-install()
 alias eject-usb="diskutil eject"
 alias mount-dmg="hdiutil attach"
 alias eject-dmg="hdiutil eject"
+alias tower=gittower
 alias g=git
 
 function itunes-pause () {
