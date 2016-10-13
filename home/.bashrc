@@ -93,6 +93,7 @@ alias mount-dmg="hdiutil attach"
 alias eject-dmg="hdiutil eject"
 alias tower=gittower
 alias g=git
+alias how=howdoi
 
 function itunes-pause () {
     /usr/bin/osascript -e 'tell application "iTunes"' -e "pause" -e "end tell"
