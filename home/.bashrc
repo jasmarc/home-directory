@@ -112,3 +112,6 @@ icloud-ssh()
 {
     ssh -2 -6 $1.$ICLOUDID.members.btmm.icloud.com
 }
+
+export REAL_NAME="Jason Marcell"
+export EMAIL_ADDRESS="jmarcell@apple.com"
