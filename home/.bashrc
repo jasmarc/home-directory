@@ -73,7 +73,7 @@ B="\[\033[0;34m\]"    # blue
 M="\[\033[0;35m\]"    # magenta
 C="\[\033[0;36m\]"    # cyan
 W="\[\033[0;37m\]"    # white
-SCM='$(__git_ps1)$(__svn_ps1)'
+SCM='$(__git_ps1)'
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="$G\h$W:$M\W$Y$SCM$NONE \$ "
