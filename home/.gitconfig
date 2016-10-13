@@ -18,6 +18,8 @@
     added = yellow
     changed = green
     untracked = cyan
+# [format]
+#     pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [alias]
     st = status
     ci = commit
