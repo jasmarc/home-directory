@@ -46,5 +46,10 @@
     enabled = true
 [git-up "fetch"]
 	prune = true
-[git-up]
-	post-hook = "git checkout develop 2>&1 >/dev/null; git branch --merged | grep -v '*' | xargs -n 1 git branch -d; git clean -df"
+[sendemail]
+	suppresscc = all
+#	transferEncoding = base64
+    from = jmarcell@apple.com
+	transferEncoding = base64
+[merge]
+	renamelimit=999999
