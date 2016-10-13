@@ -79,6 +79,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="$G\h$W:$M\W$Y$SCM$NONE \$ "
 
 export EDITOR=emacs
+export SVN_LOG_EDITOR=$EDITOR
 export CLICOLOR=true
 export LSCOLORS="HxfxcxdxBxegedabagacHx"
 
