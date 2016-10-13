@@ -1,6 +1,14 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 if [ -d ~/bin ] ; then
    PATH=~/bin:"${PATH}"
 fi
