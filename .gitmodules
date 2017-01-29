@@ -4,6 +4,3 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "home/.oh-my-zsh/themes/bullet-train"]
-	path = home/.oh-my-zsh/themes/bullet-train
-	url = https://github.com/caiogondim/bullet-train-oh-my-zsh-theme.git

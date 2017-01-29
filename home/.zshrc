@@ -7,53 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="bullet-train/bullet-train"
-
-ZSH_THEME="bullet-train/bullet-train"
-BULLETTRAIN_PROMPT_ORDER=(
-    status
-    context
-    virtualenv
-    dir
-    git
-)
-
-# STATUS
-BULLETTRAIN_STATUS_EXIT_SHOW=true
-BULLETTRAIN_STATUS_BG=black
-BULLETTRAIN_STATUS_ERROR_BG=red
-BULLETTRAIN_STATUS_FG=black
-
-# PROMPT
-BULLETTRAIN_PROMPT_CHAR=""              # Character to be show before any cmd
-BULLETTRAIN_PROMPT_ROOT=false           # Highlight if running as root
-BULLETTRAIN_PROMPT_SEPARATE_LINE=false  # Make the prompt span across two lines
-BULLETTRAIN_PROMPT_ADD_NEWLINE=false    # Adds a \n before each prompt line
-
-# Dir
-BULLETTRAIN_DIR_BG=blue
-BULLETTRAIN_DIR_FG=black
-BULLETTRAIN_DIR_CONTEXT_SHOW=false
-BULLETTRAIN_DIR_EXTENDED=0
-
-# Git
-BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
-BULLETTRAIN_GIT_COLORIZE_DIRTY_FG_COLOR=black
-BULLETTRAIN_GIT_BG=green
-BULLETTRAIN_GIT_FG=black
-BULLETTRAIN_GIT_DIRTY=""
-BULLETTRAIN_GIT_CLEAN=""
-BULLETTRAIN_GIT_ADDED=" \UE168"     # 
-BULLETTRAIN_GIT_MODIFIED=" \UE17C"  # 
-BULLETTRAIN_GIT_DELETED=" \UE16A"   # 
-BULLETTRAIN_GIT_UNTRACKED=" \UE16C" # 
-BULLETTRAIN_GIT_RENAMED=" \UE1B7"   # 
-BULLETTRAIN_GIT_UNMERGED=" ="
-BULLETTRAIN_GIT_AHEAD=" \UE1B8"     # 
-BULLETTRAIN_GIT_BEHIND=" \UE1B9"    # 
-BULLETTRAIN_GIT_DIVERGED=" \UE1EA"  # 
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
