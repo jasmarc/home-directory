@@ -101,7 +101,7 @@ alias how=howdoi
 # Source all dotfiles under ~/.include
 D="$HOME/.include"
 if [ -e $D ]; then
-    for f in $(find $D -type f); do
+    for f in $(find $D -type f -o -type l); do
         . $f
     done
 fi
