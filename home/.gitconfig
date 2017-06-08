@@ -19,6 +19,7 @@
     changed = green
     untracked = cyan
 [alias]
+    diff-inline = diff --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
     st = status
     ci = commit
     br = branch
