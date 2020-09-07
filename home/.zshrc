@@ -105,3 +105,6 @@ if [ -e $D ]; then
         . $f
     done
 fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
