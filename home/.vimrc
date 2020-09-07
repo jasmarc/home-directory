@@ -1,4 +1,3 @@
-set insertmode
 syntax on
 filetype on
 filetype plugin on
@@ -22,3 +21,5 @@ set tagstack            "lets you push and pop your jumps with ctrl+]
 set pastetoggle=<C-p>   "when you're pasting stuff this keeps it from getting
                         "all whacked out with indentation
 set foldmethod=manual   "enable code folding"
+set list
+set listchars=trail:█,nbsp:·,tab:»»
