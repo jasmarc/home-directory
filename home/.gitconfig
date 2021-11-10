@@ -19,17 +19,17 @@
 	changed = green
 	untracked = cyan
 [alias]
-    diff-inline = diff --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    df = diff
-    lg = log -p
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    ls = ls-files
-    up = pull --rebase
+	diff-inline = diff --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
+	up = pull --rebase
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
 [core]
     excludesfile = ~/.gitignore_global
