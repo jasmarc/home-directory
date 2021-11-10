@@ -47,7 +47,10 @@ xcuserdata/
 .classpath
 .project
 .settings
- 
+
+#JetBrains
+.idea
+
 # Generated files
 /web-app/WEB-INF
 build/
