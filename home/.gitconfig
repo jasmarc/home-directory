@@ -32,8 +32,8 @@
 	up = pull --rebase
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
 [core]
-    excludesfile = ~/.gitignore_global
 	editor = vim
+	excludesfile = /Users/jmarcell/.gitignore_global
 [credential]
 	helper = osxkeychain
 [push]
