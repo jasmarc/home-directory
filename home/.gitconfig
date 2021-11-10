@@ -33,6 +33,7 @@
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
 [core]
     excludesfile = ~/.gitignore_global
+	editor = vim
 [credential]
 	helper = osxkeychain
 [push]
