@@ -1,8 +1,8 @@
 [user]
-    name = Jason Marcell
-    email = jmarcell@apple.com
+	name = Jason Marcell
+	email = jmarcell@twilio.com
 [github]
-    user = jasmarc
+    user = jmarcell
 [color]
     ui = auto
 [color "branch"]
