@@ -2,22 +2,22 @@
 	name = Jason Marcell
 	email = jmarcell@twilio.com
 [github]
-    user = jmarcell
+	user = jmarcell
 [color]
-    ui = auto
+	ui = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "diff"]
-    meta = yellow bold
-    afrag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	afrag = magenta bold
+	old = red bold
+	new = green bold
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
 [alias]
     diff-inline = diff --color-words="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
     st = status
@@ -33,15 +33,15 @@
 [core]
     excludesfile = ~/.gitignore_global
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 [push]
-    default = upstream
+	default = upstream
 [branch]
-    autosetuprebase = always
+	autosetuprebase = always
 [merge]
-    tool = opendiff
+	tool = opendiff
 [mergetool]
-    keepBackup = false
+	keepBackup = false
 [rerere]
     enabled = true
 [git-up "fetch"]
