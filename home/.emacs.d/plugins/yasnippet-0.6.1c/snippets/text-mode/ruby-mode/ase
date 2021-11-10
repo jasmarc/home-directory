@@ -1,4 +1,0 @@
-# This was cloned from a TextMate bundle for yasnippet.
-#group : Tests
-# --
-assert_equal(${1:expected}, ${2:actual})
