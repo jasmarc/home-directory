@@ -33,22 +33,43 @@
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
 [core]
 	editor = vim
+	pager = delta --keep-plus-minus-markers
 	excludesfile = /Users/jmarcell/.gitignore_global
+	attributesfile = /Users/jmarcell/.gitattributes_global
+	autocrlf = false
+	whitespace = cr-at-eol
 [credential]
 	helper = osxkeychain
 [push]
 	default = upstream
 [branch]
 	autosetuprebase = always
-[merge]
-	tool = opendiff
-[mergetool]
-	keepBackup = false
 [rerere]
-    enabled = true
+	enabled = 0
 [git-up "fetch"]
 	prune = true
 [git-up]
 	post-hook = "git checkout develop 2>&1 >/dev/null; git branch --merged | grep -v '*' | xargs -n 1 git branch -d; git clean -df"
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true	 # use n and N to move between diff sections
+
+[merge]
+	conflictstyle = diff3
+[diff "java"]
+	textconv = prettier --print-width 300
+[diff "load_config_yaml"]
+	textconv = python3 $HOME/.git.d/format.py
+[diff]
+	colorMoved = default
