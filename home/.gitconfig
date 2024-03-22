@@ -32,7 +32,7 @@
 	up = pull --rebase
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
 [core]
-	editor = vim
+	editor = nvim
 	pager = delta --keep-plus-minus-markers
 	excludesfile = /Users/jsnmrcll/.gitignore_global
 	attributesfile = /Users/jsnmrcll/.gitattributes_global
