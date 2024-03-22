@@ -1,2 +1,0 @@
-export OWL="/Users/jmarcell/Repositories/owl"
-eval "$("$OWL/bin/owl" init -)"
