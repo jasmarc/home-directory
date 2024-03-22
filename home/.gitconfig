@@ -1,6 +1,6 @@
 [user]
 	name = Jason Marcell
-	email = jmarcell@twilio.com
+	email = jsnmrcll@amazon.com
 [github]
 	user = jmarcell
 [color]
@@ -34,8 +34,8 @@
 [core]
 	editor = vim
 	pager = delta --keep-plus-minus-markers
-	excludesfile = /Users/jmarcell/.gitignore_global
-	attributesfile = /Users/jmarcell/.gitattributes_global
+	excludesfile = /Users/jsnmrcll/.gitignore_global
+	attributesfile = /Users/jsnmrcll/.gitattributes_global
 	autocrlf = false
 	whitespace = cr-at-eol
 [credential]
