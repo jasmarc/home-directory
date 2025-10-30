@@ -27,15 +27,25 @@
 	df = diff
 	lg = log -p
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --branches
 	ls = ls-files
 	up = pull --rebase
 	blame-histogram = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep	 \"^author \"|sort|uniq -c|sort -nr; }; f"
+
+  # Fancy interactive add -p with preview
+  fadd = "!f() { git status --short | fzf -m --ansi --preview 'git diff --color=always -- {2} || bat --color=always {2}' --preview-window=right:60% | awk '{print $2}' | xargs -o -n1 git add -p; }; f"
+
+  # Fancy interactive reset -p with preview (unstage selected files)
+  freset = "!f() { git diff --cached --name-only | fzf -m --preview 'git diff --cached --color=always -- {} || bat --color=always {}' --ansi --preview-window=right:60% | xargs -o -n1 git reset -p HEAD --; }; f"
+
+  # Fancy interactive restore (discard local changes with confirmation)
+  frestore = "!f() { git status --short | fzf -m --ansi --preview 'git diff --color=always -- {2} || bat --color=always {2}' --preview-window=right:60% | awk '{print $2}' | xargs -o -n1 git restore -p --; }; f"
+
 [core]
 	editor = nvim
 	pager = delta --keep-plus-minus-markers
-	excludesfile = /Users/jsnmrcll/.gitignore_global
-	attributesfile = /Users/jsnmrcll/.gitattributes_global
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
 	autocrlf = false
 	whitespace = cr-at-eol
 [credential]
@@ -73,3 +83,7 @@
 	textconv = python3 $HOME/.git.d/format.py
 [diff]
 	colorMoved = default
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
