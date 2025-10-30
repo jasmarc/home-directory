@@ -1,0 +1,30 @@
+---
+whiskers:
+  version: "2.2.0"
+  matrix:
+    - flavor
+  filename: "themes/catppuccin-{{ flavor.identifier }}.ron"
+---
+(
+    selected_tab: Some("Reset"),
+    command_fg: Some("#{{ text.hex }}"),
+    selection_bg: Some("#{{ surface2.hex }}"),
+    selection_fg: Some("#{{ text.hex }}"),
+    cmdbar_bg: Some("#{{ mantle.hex }}"),
+    cmdbar_extra_lines_bg: Some("#{{ mantle.hex }}"),
+    disabled_fg: Some("#{{ overlay1.hex }}"),
+    diff_line_add: Some("#{{ green.hex }}"),
+    diff_line_delete: Some("#{{ red.hex }}"),
+    diff_file_added: Some("#{{ green.hex }}"),
+    diff_file_removed: Some("#{{ maroon.hex }}"),
+    diff_file_moved: Some("#{{ mauve.hex }}"),
+    diff_file_modified: Some("#{{ peach.hex }}"),
+    commit_hash: Some("#{{ lavender.hex }}"),
+    commit_time: Some("#{{ subtext1.hex }}"),
+    commit_author: Some("#{{ sapphire.hex }}"),
+    danger_fg: Some("#{{ red.hex }}"),
+    push_gauge_bg: Some("#{{ blue.hex }}"),
+    push_gauge_fg: Some("#{{ base.hex }}"),
+    tag_fg: Some("#{{ rosewater.hex }}"),
+    branch_fg: Some("#{{ teal.hex }}")
+)

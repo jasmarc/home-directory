@@ -1,0 +1,24 @@
+# Ghostty Configuration
+
+# Theme
+theme = catppuccin-mocha
+
+# Font
+font-family = "JetBrains Mono"
+font-size = 14
+
+# Window
+window-padding-x = 10
+window-padding-y = 10
+window-decoration = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Shell integration
+shell-integration = fish
+
+# Misc
+confirm-close-surface = false
+quit-after-last-window-closed = true
