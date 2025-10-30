@@ -23,7 +23,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
  
 # OS generated files #
 ######################
@@ -41,8 +40,7 @@ Thumbs.db
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
- 
- 
+
 #Eclipse
 .classpath
 .project
@@ -50,6 +48,9 @@ xcuserdata/
 
 #JetBrains
 .idea
+*.iml
+
+cdk.context.json
 
 # Generated files
 /web-app/WEB-INF
