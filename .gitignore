@@ -1,2 +1,11 @@
 .DS_Store
 home/.emacs.d/savehist
+# Sensitive/private configs
+**/.aws-*
+**/.dont-track.*
+**/auth
+**/credentials
+**/*-auth
+**/*-token
+**/*-secret
+**/*-key
