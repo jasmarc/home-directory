@@ -14,3 +14,6 @@ home/.emacs.d/savehist
 **/.aws_*
 home/.zshrc.d/.firstmate
 **/secrets.fish
+
+# Contains an internal SSO URL; lives only on the machine
+config/.config/nvim/lua/plugins/amazonq.lua
