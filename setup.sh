@@ -66,6 +66,8 @@ install_tool() {
 # Parse arguments
 INSTALL=false
 CHECK_ONLY=false
+ADOPT=false
+REPO="$(cd "$(dirname "$0")" && pwd)"
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -77,14 +79,23 @@ while [[ $# -gt 0 ]]; do
             CHECK_ONLY=true
             shift
             ;;
+        --adopt)
+            ADOPT=true
+            shift
+            ;;
         *)
-            echo "Usage: $0 [--install] [--check]"
+            echo "Usage: $0 [--install] [--check] [--adopt]"
             echo "  --install: Install missing tools via Homebrew"
-            echo "  --check:   Only check status, don't install anything"
+            echo "  --check:   Report-only health check (runs ./doctor.sh; pass --remote HOST there for another machine)"
+            echo "  --adopt:   Let stow pull existing files INTO the repo when they conflict (review git diff after!)"
             exit 1
             ;;
     esac
 done
+
+if [[ "$CHECK_ONLY" == "true" ]]; then
+    exec "$REPO/doctor.sh"
+fi
 
 # Check Homebrew
 if [[ "$INSTALL" == "true" ]]; then
@@ -94,7 +105,7 @@ fi
 echo "📦 Checking dependencies:"
 
 # Check each tool
-TOOLS="stow:stow nvim:neovim tmux:tmux fish:fish starship:starship fzf:fzf git:git tig:tig gitui:gitui zoxide:zoxide delta:git-delta"
+TOOLS="$(tr '\n' ' ' < "$REPO/brew-tools.txt")"   # shared with doctor.sh
 
 for tool_pair in $TOOLS; do
     tool=${tool_pair%:*}
@@ -107,27 +118,38 @@ for tool_pair in $TOOLS; do
     fi
 done
 
-if [[ "$CHECK_ONLY" == "true" ]]; then
-    exit 0
-fi
-
 echo
 echo "🔗 Using GNU Stow to manage dotfiles:"
 
-# Use stow to create symlinks
-if command_exists stow; then
-    echo "Stowing home directory files..."
-    stow --adopt -t ~ home
-    
-    echo "Stowing config files..."
-    stow --adopt -t ~/.config config
-    
-    echo -e "✅ ${GREEN}Dotfiles stowed successfully${NC}"
-    echo -e "${YELLOW}Note: --adopt was used to handle conflicts. Check 'git status' for any changes.${NC}"
-else
+# Use stow to create symlinks. Both packages target ~ : config/ already contains
+# its own .config/ layer (targeting ~/.config used to create ~/.config/.config).
+if ! command_exists stow; then
     echo -e "${RED}❌ GNU Stow not found. Install with: brew install stow${NC}"
     exit 1
 fi
+cd "$REPO"
+echo "Dry run first (nothing changes yet)..."
+conflicts=$(stow -n -v -t ~ home config 2>&1 | grep -E '^\s*\* ' || true)
+if [[ -n "$conflicts" && "$ADOPT" != "true" ]]; then
+    echo -e "${YELLOW}stow found conflicts, so nothing was linked:${NC}"
+    echo "$conflicts"
+    echo
+    echo "Resolve them by hand (move the existing file aside), or re-run with --adopt to"
+    echo "pull the existing files INTO the repo. This repo is public: review the diff before committing."
+    exit 1
+fi
+if [[ "$ADOPT" == "true" ]]; then
+    if [[ -n "$(git status --porcelain)" ]]; then
+        echo -e "${RED}❌ --adopt needs a clean working tree so you can see exactly what it pulled in. Commit or stash first.${NC}"
+        exit 1
+    fi
+    stow --adopt -t ~ home config
+    echo -e "${YELLOW}--adopt pulled these into the repo (review before committing):${NC}"
+    git diff --stat
+else
+    stow -t ~ home config
+fi
+echo -e "✅ ${GREEN}Dotfiles stowed${NC}"
 
 echo
 echo "🎨 Setting up themes and plugins:"
@@ -154,5 +176,5 @@ echo "🎉 Setup complete!"
 echo
 echo "Next steps:"
 echo "1. Restart your shell or run: exec \$SHELL"
-echo "2. For fish shell: chsh -s \$(which fish)"
+echo "2. Run ./doctor.sh (or ./setup.sh --check) and fix anything marked ✗"
 echo "3. For nvim: run :checkhealth in neovim"

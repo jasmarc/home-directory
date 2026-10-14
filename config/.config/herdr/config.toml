@@ -1,0 +1,128 @@
+# herdr configuration
+# Place: ~/.config/herdr/config.toml
+# Reload: prefix+shift+r (or `herdr server reload-config`)
+
+onboarding = false
+
+[theme]
+# Built-in: catppuccin, terminal, tokyo-night, dracula, nord,
+#           gruvbox, one-dark, solarized, kanagawa, rose-pine, vesper
+name = "dracula"
+
+auto_switch = false
+[terminal]
+# Shell for new panes. Empty = $SHELL, then /bin/sh.
+default_shell = "/opt/homebrew/bin/fish"
+shell_mode = "auto"
+# CWD policy: "follow" (inherit source pane), "home", "current", or fixed path
+new_cwd = "follow"
+
+[update]
+channel = "stable"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+# Sidebar sizing
+sidebar_min_width = 20
+sidebar_max_width = 40
+# Don't prompt for tab name on creation (faster workflow)
+prompt_new_tab_name = false
+# NOTE: `agent_panel_scope = "all"` removed 2026-07-29 — the key no longer exists in
+# herdr 0.7.5 (dropped, not renamed) and `herdr config check` warned it was ignored.
+# Reduce flashing when switching back to herdr
+redraw_on_focus_gained = false
+# Mouse capture for herdr UI (cmd-click URLs still works in most terminals)
+mouse_capture = true
+
+agent_panel_sort = "priority"
+[ui.toast]
+# off | herdr | terminal | system
+delivery = "system"
+
+[ui.sound]
+enabled = true
+
+[session]
+# Resume AI agent panes after server restart
+resume_agents_on_restore = true
+
+[remote]
+manage_ssh_config = true
+
+[advanced]
+# 10MB scrollback per pane (default). Increase if agents produce large output.
+scrollback_limit_bytes = 10000000
+
+[experimental]
+# Save pane history across server restarts
+pane_history = true
+
+[keys]
+prefix = "ctrl+b"
+
+# Settings & help
+settings = "prefix+s"
+help = "prefix+?"
+reload_config = "prefix+shift+r"
+
+# Window/tab management
+new_tab = "prefix+c"
+next_tab = "prefix+n"
+previous_tab = "prefix+p"
+close_tab = "prefix+ampersand"
+rename_tab = "prefix+comma"
+switch_tab = "prefix+1..9"
+
+# Splits (exact tmux defaults)
+split_horizontal = ["prefix+\"", "prefix+minus"]
+split_vertical = "prefix+%"
+
+# Pane focus (arrow keys, tmux default + vim keys)
+focus_pane_left = ["prefix+left", "prefix+h"]
+focus_pane_down = ["prefix+down", "prefix+j"]
+focus_pane_up = ["prefix+up", "prefix+k"]
+focus_pane_right = ["prefix+right", "prefix+l"]
+
+# Pane management
+close_pane = "prefix+x"
+zoom = "prefix+z"
+last_pane = "prefix+;"
+goto = "prefix+q"
+
+# Pane swap (tmux: prefix+{ / prefix+})
+swap_pane_left = "prefix+{"
+swap_pane_right = "prefix+}"
+swap_pane_up = "prefix+shift+k"
+swap_pane_down = "prefix+shift+j"
+
+# Pane cycle (tmux: prefix+o / prefix+Ctrl+o for rotate)
+cycle_pane_next = ["prefix+o", "prefix+ctrl+o"]
+cycle_pane_previous = "prefix+shift+o"
+
+# Resize mode
+resize_mode = "prefix+r"
+
+# Copy mode
+copy_mode = "prefix+["
+
+# Session/workspace
+workspace_picker = "prefix+w"
+detach = "prefix+d"
+new_workspace = "prefix+shift+c"
+switch_workspace = "prefix+shift+1..9"
+
+# Misc
+toggle_sidebar = "prefix+b"
+
+# Custom commands
+[[keys.command]]
+key = "prefix+shift+g"
+type = "pane"
+command = "lazygit"
+description = "open lazygit in popup pane"
+
+[[keys.command]]
+key = "prefix+shift+f"
+type = "pane"
+command = "herdr pane list"
+description = "list all panes"
