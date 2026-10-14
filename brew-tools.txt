@@ -1,0 +1,11 @@
+stow:stow
+nvim:neovim
+tmux:tmux
+fish:fish
+starship:starship
+fzf:fzf
+git:git
+tig:tig
+gitui:gitui
+zoxide:zoxide
+delta:git-delta

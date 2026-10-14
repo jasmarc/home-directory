@@ -9,3 +9,8 @@ home/.emacs.d/savehist
 **/*-token
 **/*-secret
 **/*-key
+
+# Machine-local, never published (this repo is public)
+**/.aws_*
+home/.zshrc.d/.firstmate
+**/secrets.fish
