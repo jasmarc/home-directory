@@ -60,8 +60,6 @@
 	prune = true
 [git-up]
 	post-hook = "git checkout develop 2>&1 >/dev/null; git branch --merged | grep -v '*' | xargs -n 1 git branch -d; git clean -df"
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
