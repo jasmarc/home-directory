@@ -7,6 +7,8 @@
 # Linuxbrew LAST, so non-interactive builds keep the system git/python/kinit.
 # (Interactive fish puts it first via `brew shellenv`; that's deliberate.)
 [ -d /home/linuxbrew/.linuxbrew/bin ] && export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+# ~/.local/bin LAST too (herdr lives there on the Cloud Desktop; last so it cannot shadow pip3/pytest)
+[ -d "$HOME/.local/bin" ] && export PATH="$PATH:$HOME/.local/bin"
 
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -d "$HOME/.aim/mcp-servers" ] && export PATH="$HOME/.aim/mcp-servers:$PATH"
